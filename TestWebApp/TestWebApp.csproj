@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ResponseCache.Provider.Memory\ResponseCache.Provider.Memory.csproj" />
+    <ProjectReference Include="..\ResponseCache.Provider.Redis\ResponseCache.Provider.Redis.csproj" />
+    <ProjectReference Include="..\ResponseCache\ResponseCache.csproj" />
+  </ItemGroup>
+
+</Project>
