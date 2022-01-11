@@ -8,13 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddResponseCache(opt =>
 {
-    opt.UseMemoryCache();
-    //opt.UseRedis();
+    //opt.UseMemoryCache();
+    opt.UseRedis();
 
-    opt.PathDefinitions.AddRange(new List<CacheDefinition>
-    {
-        new CacheDefinition("/",10),
-    });
+    opt.PathDefinitions.Add(new CacheDefinition("/", 10));
 });
 
 var app = builder.Build();
