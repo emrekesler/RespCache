@@ -4,8 +4,6 @@ using TestWebApp.Models;
 
 namespace TestWebApp.Controllers
 {
-    [ResponseCache.Attributes.ResponseCache("Home", 100)]
-
     public class HomeController : Controller
     {
         [ResponseCache.Attributes.ResponseCache("HomeIndex", 10)]

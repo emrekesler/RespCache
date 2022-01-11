@@ -6,7 +6,7 @@ using ResponseCache.Provider.Redis.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews().AddResponseCache(opt =>
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation().AddResponseCache(opt =>
 {
     //opt.UseMemoryCache();
     opt.UseRedis();

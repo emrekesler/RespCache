@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ResponseCache.Abstractions\ResponseCache.Abstractions.csproj" />
-    <ProjectReference Include="..\ResponseCache.Provider.Abstractions\ResponseCache.Provider.Abstractions.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="TagHelpers\" />
+    <ProjectReference Include="..\ResponseCache.Abstractions\ResponseCache.Abstractions.csproj" />
+    <ProjectReference Include="..\ResponseCache.Provider.Abstractions\ResponseCache.Provider.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>
