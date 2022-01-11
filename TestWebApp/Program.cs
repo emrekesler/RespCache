@@ -1,5 +1,7 @@
+using ResponseCache.Abstractions;
 using ResponseCache.Extensions;
-using ResponseCache.Provider.Memory.Extentions;
+using ResponseCache.Provider.Memory.Extensions;
+using ResponseCache.Provider.Redis.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,11 @@ builder.Services.AddControllersWithViews().AddResponseCache(opt =>
 {
     opt.UseMemoryCache();
     //opt.UseRedis();
+
+    opt.PathDefinitions.AddRange(new List<CacheDefinition>
+    {
+        new CacheDefinition("/",10),
+    });
 });
 
 var app = builder.Build();

@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection.Extensions;
 using ResponseCache.Abstractions;
-using ResponseCache.Abstractions.Exeptions;
+using ResponseCache.Abstractions.Exception;
 using ResponseCache.Provider.Abstractions;
 
-namespace ResponseCache.Provider.Memory.Extentions
+namespace ResponseCache.Provider.Memory.Extensions
 {
 
-    public static class MemoryCacheExtentions
+    public static class MemoryCacheExtensions
     {
-        public static ResponseCacheOptions UseMemoryCache(this ResponseCacheOptions options)
+        public static void UseMemoryCache(this ResponseCacheOptions options)
         {
             if (options.Builder == null)
             {
@@ -21,8 +21,6 @@ namespace ResponseCache.Provider.Memory.Extentions
             }
 
             options.Builder.Services.TryAddSingleton<ICacheProvider, MemoryCacheProvider>();
-
-            return options;
         }
 
     }

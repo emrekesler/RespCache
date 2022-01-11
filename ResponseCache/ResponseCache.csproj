@@ -16,4 +16,8 @@
     <ProjectReference Include="..\ResponseCache.Provider.Abstractions\ResponseCache.Provider.Abstractions.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="TagHelpers\" />
+  </ItemGroup>
+
 </Project>

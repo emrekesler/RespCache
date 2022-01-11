@@ -1,13 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using ResponseCache.Abstractions;
-using ResponseCache.Abstractions.Exeptions;
+using ResponseCache.Abstractions.Exception;
 using ResponseCache.Provider.Abstractions;
 
-namespace ResponseCache.Provider.Redis.Extentions
+namespace ResponseCache.Provider.Redis.Extensions
 {
-    public static class RedisCacheExtentions
+    public static class RedisCacheExtensions
     {
-        public static ResponseCacheOptions UseRedis(this ResponseCacheOptions options)
+        public static void UseRedis(this ResponseCacheOptions options)
         {
             if (options.Builder == null)
             {
@@ -20,9 +20,6 @@ namespace ResponseCache.Provider.Redis.Extentions
             }
 
             options.Builder.Services.AddSingleton<ICacheProvider, RedisCacheProvider>();
-
-            return options;
         }
-
     }
 }

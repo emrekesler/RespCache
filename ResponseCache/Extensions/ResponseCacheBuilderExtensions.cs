@@ -21,6 +21,8 @@ namespace ResponseCache.Extensions
             var options = new ResponseCacheOptions(builder);
             setupAction(options);
 
+            builder.Services.AddSingleton(options);
+
             return builder;
         }
     }

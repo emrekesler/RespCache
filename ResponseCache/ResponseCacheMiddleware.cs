@@ -8,22 +8,26 @@ namespace ResponseCache
     {
         private readonly RequestDelegate _next;
         private readonly ICacheProvider _cacheProvider;
+        private readonly ResponseCacheOptions _options;
 
-        public ResponseCacheMiddleware(RequestDelegate next, ICacheProvider cacheProvider)
+        public ResponseCacheMiddleware(RequestDelegate next, ICacheProvider cacheProvider, ResponseCacheOptions options)
         {
             _next = next;
             _cacheProvider = cacheProvider;
+            _options = options;
         }
 
         public async Task Invoke(HttpContext context)
         {
-            string cachedContent = _cacheProvider.Get(context.Request.Path.ToString());
+            string cacheKey = context.Request.Path.ToString();
+
+            string cachedContent = _cacheProvider.Get(cacheKey);
 
             if (string.IsNullOrEmpty(cachedContent))
             {
                 Stream body = context.Response.Body;
 
-                using (MemoryStream memoryStream = new MemoryStream())
+                using (MemoryStream memoryStream = new())
                 {
                     context.Response.Body = memoryStream;
 
@@ -33,15 +37,17 @@ namespace ResponseCache
 
                     memoryStream.Seek(0, SeekOrigin.Begin);
 
-                    using (StreamReader reader = new StreamReader(memoryStream))
+                    using (StreamReader reader = new(memoryStream))
                     {
-                        string newContent = await reader.ReadToEndAsync();
+                        string content = await reader.ReadToEndAsync();
 
-                        await context.Response.WriteAsync(newContent);
+                        await context.Response.WriteAsync(content);
 
-                        if (context.Items["CacheOptions"] is CacheDefinition cacheDefinition)
+                        CacheDefinition cacheDefinition = GetCacheDefinition(context, cacheKey);
+
+                        if (cacheDefinition != null)
                         {
-                            _cacheProvider.Set(context.Request.Path.ToString(), newContent, TimeSpan.FromSeconds(cacheDefinition.Seconds));
+                            _cacheProvider.Set(context.Request.Path.ToString(), content, TimeSpan.FromSeconds(cacheDefinition.Seconds));
                         }
                     }
                 }
@@ -50,6 +56,21 @@ namespace ResponseCache
             {
                 await context.Response.WriteAsync(cachedContent);
             }
+        }
+
+        private CacheDefinition GetCacheDefinition(HttpContext context, string cacheKey)
+        {
+            if (_options.PathDefinitions.Any(pd => pd.Key == cacheKey))
+            {
+                return _options.PathDefinitions.First(pd => pd.Key == cacheKey);
+            }
+
+            if (context.Items[_options.HttpCacheItemKey] is CacheDefinition cacheDefinition)
+            {
+                return cacheDefinition;
+            }
+
+            return null;
         }
     }
 }
