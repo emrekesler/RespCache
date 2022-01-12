@@ -9,9 +9,6 @@ using ResponseCache.Abstractions;
 using ResponseCache.Extensions;
 using ResponseCache.Provider.Memory.Extensions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ResponseCache.Tests
@@ -48,7 +45,6 @@ namespace ResponseCache.Tests
 
             string responseSecond = await (await host.GetTestClient().GetAsync("/")).Content.ReadAsStringAsync();
 
-
             Assert.AreEqual(responseFirst, responseSecond);
         }
 
@@ -81,7 +77,6 @@ namespace ResponseCache.Tests
             await Task.Delay(5100);
 
             string responseSecond = await (await host.GetTestClient().GetAsync("/")).Content.ReadAsStringAsync();
-
 
             Assert.AreNotEqual(responseFirst, responseSecond);
         }
