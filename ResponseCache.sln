@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResponseCache", "ResponseCa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResponseCache.Abstractions", "ResponseCache.Abstractions\ResponseCache.Abstractions.csproj", "{AC0AC1E0-E65F-4D2A-B0D3-134258478D19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebApp", "TestWebApp\TestWebApp.csproj", "{62FCDD20-F621-4547-9E9F-62DF3CAA2747}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResponseCache.Tests", "ResponseCache.Tests\ResponseCache.Tests.csproj", "{8056B143-057F-4DCE-A1D1-7906266CB786}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{AC0AC1E0-E65F-4D2A-B0D3-134258478D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC0AC1E0-E65F-4D2A-B0D3-134258478D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC0AC1E0-E65F-4D2A-B0D3-134258478D19}.Release|Any CPU.Build.0 = Release|Any CPU
-		{62FCDD20-F621-4547-9E9F-62DF3CAA2747}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62FCDD20-F621-4547-9E9F-62DF3CAA2747}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62FCDD20-F621-4547-9E9F-62DF3CAA2747}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62FCDD20-F621-4547-9E9F-62DF3CAA2747}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8056B143-057F-4DCE-A1D1-7906266CB786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8056B143-057F-4DCE-A1D1-7906266CB786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8056B143-057F-4DCE-A1D1-7906266CB786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8056B143-057F-4DCE-A1D1-7906266CB786}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
