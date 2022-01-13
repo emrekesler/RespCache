@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection.Extensions;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using RespCache.Abstractions;
 using RespCache.Abstractions.Exception;
 using RespCache.Provider.Abstractions;
@@ -20,6 +21,7 @@ namespace RespCache.Provider.Memory.Extensions
                 throw new MultipleProviderException("MemoryCache");
             }
 
+            options.Builder.Services.AddMemoryCache();
             options.Builder.Services.TryAddSingleton<ICacheProvider, MemoryCacheProvider>();
         }
 

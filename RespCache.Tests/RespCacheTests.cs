@@ -17,7 +17,73 @@ namespace RespCache.Tests
     internal class RespCacheTests
     {
         [Test]
-        public async Task Middleware_5_Second_Cache_Intime_Test()
+        public async Task Controllers_5_Second_Cache_Intime_Test()
+        {
+            using var host = await new HostBuilder()
+                .ConfigureWebHost(webHost =>
+                {
+                    webHost.UseTestServer();
+                    webHost.ConfigureTestServices(services =>
+                    {
+                        services.AddControllers().AddRespCache(opt =>
+                        {
+                            opt.UseMemoryCache();
+                            opt.PathDefinitions.Add(new CacheDefinition("/", 5));
+                        }
+                        );
+                    });
+                    webHost.Configure(app =>
+                    {
+                        app.UseRespCache();
+                        app.Run(async ctx => await ctx.Response.WriteAsync(DateTime.Now.ToString(CultureInfo.InvariantCulture)));
+                    });
+                })
+                .StartAsync();
+
+            string responseFirst = await (await host.GetTestClient().GetAsync("/")).Content.ReadAsStringAsync();
+
+            await Task.Delay(3000);
+
+            string responseSecond = await (await host.GetTestClient().GetAsync("/")).Content.ReadAsStringAsync();
+
+            Assert.AreEqual(responseFirst, responseSecond);
+        }
+
+        [Test]
+        public async Task Controllers_5_Second_Cache_Overtime_Test()
+        {
+            using var host = await new HostBuilder()
+                .ConfigureWebHost(webHost =>
+                {
+                    webHost.UseTestServer();
+                    webHost.ConfigureTestServices(services =>
+                    {
+                        services.AddControllers().AddRespCache(opt =>
+                        {
+                            opt.UseMemoryCache();
+                            opt.PathDefinitions.Add(new CacheDefinition("/", 5));
+                        }
+                    );
+                    });
+                    webHost.Configure(app =>
+                    {
+                        app.UseRespCache();
+                        app.Run(async ctx => await ctx.Response.WriteAsync(DateTime.Now.ToString(CultureInfo.InvariantCulture)));
+                    });
+                })
+                .StartAsync();
+
+            string responseFirst = await (await host.GetTestClient().GetAsync("/")).Content.ReadAsStringAsync();
+
+            await Task.Delay(5100);
+
+            string responseSecond = await (await host.GetTestClient().GetAsync("/")).Content.ReadAsStringAsync();
+
+            Assert.AreNotEqual(responseFirst, responseSecond);
+        }
+
+        [Test]
+        public async Task ControllersWithView_5_Second_Cache_Intime_Test()
         {
             using var host = await new HostBuilder()
                 .ConfigureWebHost(webHost =>
@@ -50,7 +116,7 @@ namespace RespCache.Tests
         }
 
         [Test]
-        public async Task Middleware_5_Second_Cache_Overtime_Test()
+        public async Task ControllersWithView_5_Second_Cache_Overtime_Test()
         {
             using var host = await new HostBuilder()
                 .ConfigureWebHost(webHost =>
