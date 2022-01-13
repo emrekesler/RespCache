@@ -7,7 +7,7 @@
 
 		<Title>RespCache.Provider.Memory</Title>
 		<PackageId>RespCache.Provider.Memory</PackageId>
-		<Version>0.0.1</Version>
+		<Version>0.0.2</Version>
 		<Authors>Emre Kesler</Authors>
 		<Description>A RespCache provider that writes cache to the Memory Cache</Description>
 		<RepositoryUrl>https://github.com/emrekesler/RespCache</RepositoryUrl>
