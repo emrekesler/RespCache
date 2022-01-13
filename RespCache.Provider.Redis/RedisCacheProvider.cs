@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
-using ResponseCache.Provider.Abstractions;
+using RespCache.Provider.Abstractions;
 using StackExchange.Redis;
 
-namespace ResponseCache.Provider.Redis
+namespace RespCache.Provider.Redis
 {
     public class RedisCacheProvider : ICacheProvider
     {
@@ -14,7 +14,7 @@ namespace ResponseCache.Provider.Redis
             ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(
             new ConfigurationOptions
             {
-                EndPoints = { configuration["ResponseCache:Redis:ConnectionString"] }
+                EndPoints = { configuration["RespCache:Redis:ConnectionString"] }
             });
 
             _db = redis.GetDatabase();

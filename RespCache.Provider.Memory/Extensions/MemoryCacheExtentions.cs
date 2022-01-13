@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection.Extensions;
-using ResponseCache.Abstractions;
-using ResponseCache.Abstractions.Exception;
-using ResponseCache.Provider.Abstractions;
+using RespCache.Abstractions;
+using RespCache.Abstractions.Exception;
+using RespCache.Provider.Abstractions;
 
-namespace ResponseCache.Provider.Memory.Extensions
+namespace RespCache.Provider.Memory.Extensions
 {
 
     public static class MemoryCacheExtensions
     {
-        public static void UseMemoryCache(this ResponseCacheOptions options)
+        public static void UseMemoryCache(this RespCacheOptions options)
         {
             if (options.Builder == null)
             {

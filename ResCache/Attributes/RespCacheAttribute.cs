@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
-using ResponseCache.Abstractions;
+using RespCache.Abstractions;
 
-namespace ResponseCache.Attributes
+namespace RespCache.Attributes
 {
     [AttributeUsage(AttributeTargets.All, Inherited = true, AllowMultiple = false)]
-    public class ResponseCacheAttribute : ResultFilterAttribute
+    public class RespCacheAttribute : ResultFilterAttribute
     {
         private readonly CacheDefinition _cacheDefinition;
 
-        public ResponseCacheAttribute(CacheDefinition cacheDefinition)
+        public RespCacheAttribute(CacheDefinition cacheDefinition)
         {
             _cacheDefinition = cacheDefinition;
         }
 
-        public ResponseCacheAttribute(string key, int seconds)
+        public RespCacheAttribute(string key, int seconds)
         {
             _cacheDefinition = new CacheDefinition(key, seconds);
         }
@@ -37,9 +37,9 @@ namespace ResponseCache.Attributes
             base.OnResultExecuting(context);
         }
 
-        private ResponseCacheOptions GetOptions(HttpContext httpContext)
+        private RespCacheOptions GetOptions(HttpContext httpContext)
         {
-            return httpContext.RequestServices.GetService<ResponseCacheOptions>();
+            return httpContext.RequestServices.GetService<RespCacheOptions>();
         }
     }
 }

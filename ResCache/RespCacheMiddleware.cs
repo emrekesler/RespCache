@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
-using ResponseCache.Abstractions;
-using ResponseCache.Provider.Abstractions;
+using RespCache.Abstractions;
+using RespCache.Provider.Abstractions;
 
-namespace ResponseCache
+namespace RespCache
 {
-    public class ResponseCacheMiddleware
+    public class RespCacheMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly ICacheProvider _cacheProvider;
-        private readonly ResponseCacheOptions _options;
+        private readonly RespCacheOptions _options;
 
-        public ResponseCacheMiddleware(RequestDelegate next, ICacheProvider cacheProvider, ResponseCacheOptions options)
+        public RespCacheMiddleware(RequestDelegate next, ICacheProvider cacheProvider, RespCacheOptions options)
         {
             _next = next;
             _cacheProvider = cacheProvider;

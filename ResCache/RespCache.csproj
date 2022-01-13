@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ResponseCache.Abstractions\ResponseCache.Abstractions.csproj" />
-    <ProjectReference Include="..\ResponseCache.Provider.Abstractions\ResponseCache.Provider.Abstractions.csproj" />
+    <ProjectReference Include="..\RespCache.Abstractions\RespCache.Abstractions.csproj" />
+    <ProjectReference Include="..\RespCache.Provider.Abstractions\RespCache.Provider.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

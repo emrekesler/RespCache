@@ -1,4 +1,4 @@
-﻿namespace ResponseCache.Abstractions.Exception
+﻿namespace RespCache.Abstractions.Exception
 {
     public class MultipleProviderException : System.Exception
     {

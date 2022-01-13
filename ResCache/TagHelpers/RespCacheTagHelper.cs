@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
-using ResponseCache.Provider.Abstractions;
+using RespCache.Provider.Abstractions;
 
-namespace ResponseCache.TagHelpers
+namespace RespCache.TagHelpers
 {
-    public class ResponseCacheTagHelper : TagHelper
+    public class RespCacheTagHelper : TagHelper
     {
         private readonly ICacheProvider _cacheProvider;
 
@@ -11,7 +11,7 @@ namespace ResponseCache.TagHelpers
 
         public int Seconds { get; set; }
 
-        public ResponseCacheTagHelper(ICacheProvider cacheProvider)
+        public RespCacheTagHelper(ICacheProvider cacheProvider)
         {
             _cacheProvider = cacheProvider;
         }

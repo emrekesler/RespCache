@@ -1,4 +1,4 @@
-﻿namespace ResponseCache.Provider.Abstractions
+﻿namespace RespCache.Provider.Abstractions
 {
     public interface ICacheProvider
     {

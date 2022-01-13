@@ -1,13 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using ResponseCache.Abstractions;
-using ResponseCache.Abstractions.Exception;
-using ResponseCache.Provider.Abstractions;
+using RespCache.Abstractions;
+using RespCache.Abstractions.Exception;
+using RespCache.Provider.Abstractions;
+using RespCache.Provider.Redis;
 
-namespace ResponseCache.Provider.Redis.Extensions
+namespace RespCache.Provider.Redis.Extensions
 {
     public static class RedisCacheExtensions
     {
-        public static void UseRedis(this ResponseCacheOptions options)
+        public static void UseRedis(this RespCacheOptions options)
         {
             if (options.Builder == null)
             {

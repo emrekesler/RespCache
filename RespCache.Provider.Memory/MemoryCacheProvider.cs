@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
-using ResponseCache.Provider.Abstractions;
+using RespCache.Provider.Abstractions;
 
-namespace ResponseCache.Provider.Memory
+namespace RespCache.Provider.Memory
 {
     internal class MemoryCacheProvider : ICacheProvider
     {

@@ -5,15 +5,16 @@ using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NUnit.Framework;
-using ResponseCache.Abstractions;
-using ResponseCache.Extensions;
-using ResponseCache.Provider.Memory.Extensions;
+using RespCache.Abstractions;
+using RespCache.Extensions;
+using RespCache.Provider.Memory.Extensions;
 using System;
+using System.Globalization;
 using System.Threading.Tasks;
 
-namespace ResponseCache.Tests
+namespace RespCache.Tests
 {
-    internal class ResponseCacheTests
+    internal class RespCacheTests
     {
         [Test]
         public async Task Middleware_5_Second_Cache_Intime_Test()
@@ -24,7 +25,7 @@ namespace ResponseCache.Tests
                     webHost.UseTestServer();
                     webHost.ConfigureTestServices(services =>
                     {
-                        services.AddControllersWithViews().AddResponseCache(opt =>
+                        services.AddControllersWithViews().AddRespCache(opt =>
                         {
                             opt.UseMemoryCache();
                             opt.PathDefinitions.Add(new CacheDefinition("/", 5));
@@ -33,8 +34,8 @@ namespace ResponseCache.Tests
                     });
                     webHost.Configure(app =>
                     {
-                        app.UseResponseCache();
-                        app.Run(async ctx => await ctx.Response.WriteAsync(DateTime.Now.ToString()));
+                        app.UseRespCache();
+                        app.Run(async ctx => await ctx.Response.WriteAsync(DateTime.Now.ToString(CultureInfo.InvariantCulture)));
                     });
                 })
                 .StartAsync();
@@ -57,7 +58,7 @@ namespace ResponseCache.Tests
                     webHost.UseTestServer();
                     webHost.ConfigureTestServices(services =>
                     {
-                        services.AddControllersWithViews().AddResponseCache(opt =>
+                        services.AddControllersWithViews().AddRespCache(opt =>
                         {
                             opt.UseMemoryCache();
                             opt.PathDefinitions.Add(new CacheDefinition("/", 5));
@@ -66,8 +67,8 @@ namespace ResponseCache.Tests
                     });
                     webHost.Configure(app =>
                     {
-                        app.UseResponseCache();
-                        app.Run(async ctx => await ctx.Response.WriteAsync(DateTime.Now.ToString()));
+                        app.UseRespCache();
+                        app.Run(async ctx => await ctx.Response.WriteAsync(DateTime.Now.ToString(CultureInfo.InvariantCulture)));
                     });
                 })
                 .StartAsync();

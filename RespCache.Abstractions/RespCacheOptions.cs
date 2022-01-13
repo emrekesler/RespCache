@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace ResponseCache.Abstractions
+namespace RespCache.Abstractions
 {
-    public class ResponseCacheOptions
+    public class RespCacheOptions
     {
-        public ResponseCacheOptions(IMvcBuilder builder)
+        public RespCacheOptions(IMvcBuilder builder)
         {
             Builder = builder;
             HttpCacheItemKey = "CacheOptions";
@@ -16,6 +16,6 @@ namespace ResponseCache.Abstractions
         public string HttpCacheItemKey { get; set; }
 
         public List<CacheDefinition> PathDefinitions { get; set; }
-    
+
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace ResponseCache.Abstractions
+﻿namespace RespCache.Abstractions
 {
     public class CacheDefinition
     {
