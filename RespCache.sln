@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RespCache", "ResCache\RespCache.csproj", "{BA1CD803-45F2-4D72-A95F-3FEB7FBE9256}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RespCache", "RespCache\RespCache.csproj", "{BA1CD803-45F2-4D72-A95F-3FEB7FBE9256}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RespCache.Abstractions", "RespCache.Abstractions\RespCache.Abstractions.csproj", "{D83526B7-741A-48CE-844B-C7F49CE48905}"
 EndProject

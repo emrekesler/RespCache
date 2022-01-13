@@ -1,9 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>disable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+
+		<Title>RespCache.Provider.Abstractions</Title>
+		<PackageId>RespCache.Provider.Abstractions</PackageId>
+		<Version>0.0.1</Version>
+		<Authors>Emre Kesler</Authors>
+		<Description>Abstractions for Resp Cache providers</Description>
+		<RepositoryUrl>https://github.com/emrekesler/RespCache</RepositoryUrl>
+		<ProjectUrl>https://github.com/emrekesler/RespCache</ProjectUrl>
+	</PropertyGroup>
 
 </Project>

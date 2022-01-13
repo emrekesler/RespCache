@@ -5,17 +5,17 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>disable</Nullable>
 
-		<Title>RespCache.Provider.Redis</Title>
-		<PackageId>RespCache.Provider.Redis</PackageId>
+		<Title>RespCache</Title>
+		<PackageId>RespCache</PackageId>
 		<Version>0.0.1</Version>
 		<Authors>Emre Kesler</Authors>
-		<Description>A RespCache provider that writes cache to the Redis</Description>
+		<Description>Response Cache for AspNetCore.Mvc applications</Description>
 		<RepositoryUrl>https://github.com/emrekesler/RespCache</RepositoryUrl>
 		<ProjectUrl>https://github.com/emrekesler/RespCache</ProjectUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="StackExchange.Redis" Version="2.2.88" />
+		<PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.2.0" />
 	</ItemGroup>
 
 	<ItemGroup>

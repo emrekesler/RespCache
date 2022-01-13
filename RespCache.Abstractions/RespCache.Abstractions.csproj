@@ -1,13 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>disable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-  </ItemGroup>
+		<Title>RespCache.Abstractions</Title>
+		<PackageId>RespCache.Abstractions</PackageId>
+		<Version>0.0.1</Version>
+		<Authors>Emre Kesler</Authors>
+		<Description>Abstractions for Resp Cache</Description>
+		<RepositoryUrl>https://github.com/emrekesler/RespCache</RepositoryUrl>
+		<ProjectUrl>https://github.com/emrekesler/RespCache</ProjectUrl>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+	</ItemGroup>
 
 </Project>

@@ -1,18 +1,26 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>disable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="6.0.0" />
-  </ItemGroup>
+		<Title>RespCache.Provider.Memory</Title>
+		<PackageId>RespCache.Provider.Memory</PackageId>
+		<Version>0.0.1</Version>
+		<Authors>Emre Kesler</Authors>
+		<Description>A RespCache provider that writes cache to the Memory Cache</Description>
+		<RepositoryUrl>https://github.com/emrekesler/RespCache</RepositoryUrl>
+		<ProjectUrl>https://github.com/emrekesler/RespCache</ProjectUrl>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\RespCache.Abstractions\RespCache.Abstractions.csproj" />
-    <ProjectReference Include="..\RespCache.Provider.Abstractions\RespCache.Provider.Abstractions.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\RespCache.Abstractions\RespCache.Abstractions.csproj" />
+		<ProjectReference Include="..\RespCache.Provider.Abstractions\RespCache.Provider.Abstractions.csproj" />
+	</ItemGroup>
 
 </Project>

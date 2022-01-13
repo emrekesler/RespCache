@@ -16,7 +16,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\ResCache\RespCache.csproj" />
+	  <ProjectReference Include="..\RespCache\RespCache.csproj" />
 	  <ProjectReference Include="..\RespCache.Provider.Memory\RespCache.Provider.Memory.csproj" />
 	</ItemGroup>
 
