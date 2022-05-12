@@ -40,7 +40,6 @@ namespace RespCache.Attributes
         private RespCacheOptions GetOptions(HttpContext httpContext)
         {
             return httpContext.RequestServices.GetService<RespCacheOptions>();
-
         }
     }
 }
